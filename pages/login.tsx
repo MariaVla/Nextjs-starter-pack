@@ -16,8 +16,6 @@ const LoginPage: NextPage = () => {
     setUser({ name: username });
   };
 
-  console.log('[DEBUG] styles:', styles);
-
   return (
     <>
       <Navbar />
