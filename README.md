@@ -2,6 +2,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Next.js started pack:
+
+- React Query - fetching library
+- React Hook Forms - forms library
+- JSON Server for API mock
+
+### TODO
+
+- Add prettier
+- Better config for eslint
+- Add post example with React Query
+- Add Typescript basic
+- Make login functional
+- Add i18n ?
+
 ## Dependencies
 
 - nvm -v → 0.39.1
