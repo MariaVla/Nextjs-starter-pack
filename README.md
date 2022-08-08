@@ -2,15 +2,29 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+## Dependencies
 
-```bash
-yarn dev
-```
+- nvm -v → 0.39.1
+
+- node -v → v18.7.0
+
+- npm -v → 8.15.1
+
+- yarn -v → 1.22.17
+
+## Setup
+
+1. Clone repository.
+2. `$ yarn install`
+3. `$ yarn dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+
+## To run JSON server (our mock database)
+
+`$ yarn serve-json`
 
 ---
 
