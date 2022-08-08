@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Navbar } from '../components/Navbar';
+import { Navbar } from '../src/components/Navbar';
 import styles from '../styles/Login.module.css';
 
-const IndexPage: NextPage = () => {
+const LoginPage: NextPage = () => {
   const [user, setUser] = useState();
   const {
     register,
@@ -93,4 +93,4 @@ const IndexPage: NextPage = () => {
   );
 };
 
-export default IndexPage;
+export default LoginPage;

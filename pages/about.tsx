@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import { Navbar } from '../components/Navbar';
+import { Navbar } from '../src/components/Navbar';
 import styles from '../styles/Home.module.css';
 
-const About: NextPage = () => {
+const AboutPage: NextPage = () => {
   return (
     <>
       <Navbar />
@@ -30,4 +30,4 @@ const About: NextPage = () => {
   );
 };
 
-export default About;
+export default AboutPage;

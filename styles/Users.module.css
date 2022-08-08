@@ -1,0 +1,26 @@
+.fetchBtn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  margin: 2rem;
+}
+
+.containerUsers {
+  width: 870%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.listUsers {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.listUsers div {
+  margin-top: 0.5rem;
+}
+
+.listUsers div a {
+  padding: 0.275rem;
+}
