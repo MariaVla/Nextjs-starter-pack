@@ -1,17 +1,18 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
+import { Navbar } from '../components/Navbar';
 import styles from '../styles/Home.module.css';
 
 const About: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>About</h1>
+    <>
+      <Navbar />
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <h1 className={styles.title}>About</h1>
 
-        <p className={styles.description}>Quienes somos?</p>
-      </main>
-      {/* 
+          <p className={styles.description}>Quienes somos?</p>
+        </main>
+        {/* 
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -24,7 +25,8 @@ const About: NextPage = () => {
           </span>
         </a>
       </footer> */}
-    </div>
+      </div>
+    </>
   );
 };
 
