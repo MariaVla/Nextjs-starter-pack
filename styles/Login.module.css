@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  margin: 10px 20px;
+}
+
+.rowRemember {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--light-border);
+  padding: 0 0 15px 0;
+}
+
+.container form {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 12px 12px 10px var(--shadow-color);
+  flex: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .container form {
+    flex: 0.5;
+    max-width: 600px;
+  }
+}
+
+.formHeader {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.formField {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid var(--light-border);
+  border-radius: 5px;
+}
+
+.formField.hasError {
+  border: 1px solid var(--danger);
+}
+
+.errorLabel {
+  color: var(--danger);
+}
+
+.rememberLabel {
+  margin: 0 10px;
+}
+
+.btn {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid var(--light-border);
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-light);
+}
+
+.loginBtn {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.helloUser {
+  font-size: 2rem;
+}

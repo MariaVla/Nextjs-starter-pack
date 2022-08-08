@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import styles from '../styles/Login.module.css';
 
 const IndexPage: NextPage = () => {
   const [user, setUser] = useState();
@@ -14,16 +15,18 @@ const IndexPage: NextPage = () => {
     setUser({ name: username });
   };
 
+  console.log('[DEBUG] styles:', styles);
+
   return (
-    <div className="container">
+    <div className={styles.container}>
       {user ? (
-        <span className="hello-user">Hello, {user.name}!</span>
+        <span className={styles.helloUser}>Hello, {user.name}!</span>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="row">
-            <h3 className="form-header">LOGIN</h3>
+          <div className={styles.row}>
+            <h3 className={styles.formHeader}>LOGIN</h3>
           </div>
-          <div className="row">
+          <div className={styles.row}>
             <input
               type="text"
               placeholder="user name"
@@ -34,13 +37,18 @@ const IndexPage: NextPage = () => {
                   message: 'User name cannot be less than 3 character',
                 },
               })}
-              className={'form-field' + (errors.username ? ' has-error' : '')}
+              className={
+                styles.formField +
+                (errors.username ? ` ${styles.hasError}` : '')
+              }
             />
             {errors.username && (
-              <span className="error-label">{errors.username.message}</span>
+              <span className={styles.errorLabel}>
+                {errors.username.message}
+              </span>
             )}
           </div>
-          <div className="row">
+          <div className={styles.row}>
             <input
               type="password"
               placeholder="password"
@@ -50,20 +58,28 @@ const IndexPage: NextPage = () => {
                   message: 'Please enter your password',
                 },
               })}
-              className={'form-field' + (errors.password ? ' has-error' : '')}
+              className={
+                styles.formField +
+                (errors.password ? ` ${styles.hasError}` : '')
+              }
             />
             {errors.password && (
-              <span className="error-label">{errors.password.message}</span>
+              <span className={styles.errorLabel}>
+                {errors.password.message}
+              </span>
             )}
           </div>
-          <div className="row row-remember">
+          <div className={`${styles.row} ${styles.rowRemember}`}>
             <input type="checkbox" id="remember" {...register('remember')} />
-            <label htmlFor="remember" className="remember-label">
+            <label htmlFor="remember" className={styles.rememberLabel}>
               Remember me
             </label>
           </div>
-          <div className="row">
-            <button type="submit" className="btn login-btn">
+          <div className={styles.row}>
+            <button
+              type="submit"
+              className={`${styles.btn} ${styles.loginBtn}`}
+            >
               Login
             </button>
           </div>
