@@ -7,7 +7,6 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
 
-  // return <Component {...pageProps} />;
   return (
     <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />

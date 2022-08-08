@@ -15,34 +15,6 @@ const fetchFriends = async () => {
 // Example normal data fetching in React
 const FriendsPage: NextPage = ({ usersList }) => {
   const [users, setUsers] = useState(usersList);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  // useEffect(() => {
-  //   // If the list is empty, I'm in the client, execute the http call
-  //   if (usersList?.length == 0) {
-  //     fetch('http://localhost:4000/friends')
-  //       .then((response) => {
-  //         if (response.ok) {
-  //           return response.json();
-  //         }
-  //         throw new Error('Something went wrong');
-  //       })
-  //       .then((data) => {
-  //         setUsers(data);
-  //         setIsLoading(false);
-  //       })
-  //       .catch((error) => setError(error.message));
-  //   }
-  // }, []);
-
-  // if (isLoading) {
-  //   return <h2>Loading...</h2>;
-  // }
-
-  // if (error) {
-  //   return <h2>{error}</h2>;
-  // }
 
   if (!users[0]) {
     return <div>Loading...</div>;
