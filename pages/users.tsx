@@ -48,7 +48,6 @@ const UsersPage: NextPage = (props) => {
 
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         <div className={styles.containerUsers}>
           <ul className={styles.listUsers}>

@@ -22,7 +22,6 @@ const FriendsPage: NextPage = ({ usersList }) => {
 
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         <div className={styles.containerUsers}>
           <h1>Friends list (normal fetching in Next.js)</h1>

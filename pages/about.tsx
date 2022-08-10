@@ -2,10 +2,17 @@ import type { NextPage } from 'next';
 import { Navbar } from '../src/components/Navbar';
 import styles from '../styles/Home.module.css';
 
+import React from 'react';
+
+// export default function AboutPage: NextPage() {
+//   return (
+//     <div>about</div>
+//   )
+// }
+
 const AboutPage: NextPage = () => {
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         <main className={styles.main}>
           <h1 className={styles.title}>About</h1>

@@ -18,7 +18,6 @@ const LoginPage: NextPage = () => {
 
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         {user ? (
           <span className={styles.helloUser}>Hello, {user.name}!</span>
