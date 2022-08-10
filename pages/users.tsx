@@ -47,7 +47,11 @@ const UsersPage: NextPage = (props) => {
 
   return (
     <>
-      <MainLayout>
+      <MainLayout
+        title={'Users'}
+        description="Users Page description"
+        content={'Users Page'}
+      >
         <div className={styles.containerUsers}>
           <ul className={styles.listUsers}>
             {users?.map((user) => (

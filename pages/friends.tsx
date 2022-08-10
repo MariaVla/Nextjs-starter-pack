@@ -32,7 +32,11 @@ const FriendsPage: NextPage = ({ usersList }: Props) => {
 
   return (
     <>
-      <MainLayout>
+      <MainLayout
+        title={'Friends'}
+        description="Friends Page description"
+        content={'Friends Page'}
+      >
         <div className={styles.containerUsers}>
           <h1>Friends list (normal fetching in Next.js)</h1>
           <ul className={styles.listUsers}>

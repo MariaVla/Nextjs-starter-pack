@@ -2,12 +2,12 @@ import Head from 'next/head';
 import { Navbar } from '../Navbar';
 import styles from './MainLayout.module.css';
 
-export const MainLayout = ({ children }) => {
+export const MainLayout = ({ title, description, content, children }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Home</title>
-        <meta name="description" content="Home page" />
+        <title>{title}</title>
+        <meta name={description} content={content} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
