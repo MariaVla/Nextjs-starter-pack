@@ -3,16 +3,23 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from '../styles/Login.module.css';
 
+type User = {
+  id: number;
+  website: string;
+  name: string;
+};
+
 const LoginPage: NextPage = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<User>();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   const onSubmit = ({ username, password, remember }) => {
     // You should handle login logic with username, password and remember form data
-    setUser({ name: username });
+    setUser({ name: username, ...user });
   };
 
   return (

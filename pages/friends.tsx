@@ -11,11 +11,21 @@ const fetchFriends = async () => {
   return response.json();
 };
 
+type Props = {
+  usersList: [];
+};
+
+type User = {
+  id: number;
+  website: string;
+  name: string;
+};
+
 // Example normal data fetching in React
-const FriendsPage: NextPage = ({ usersList }) => {
+const FriendsPage: NextPage = ({ usersList }: Props) => {
   const [users, setUsers] = useState(usersList);
 
-  if (!users[0]) {
+  if (users?.length === 0) {
     return <div>Loading...</div>;
   }
 
@@ -25,10 +35,10 @@ const FriendsPage: NextPage = ({ usersList }) => {
         <div className={styles.containerUsers}>
           <h1>Friends list (normal fetching in Next.js)</h1>
           <ul className={styles.listUsers}>
-            {users?.map((user) => (
-              <li key={user.id}>
-                <a href={user.website} target="_blank" rel="noreferrer">
-                  {user.name}
+            {users?.map((user: User) => (
+              <li key={user?.id}>
+                <a href={user?.website} target="_blank" rel="noreferrer">
+                  {user?.name}
                 </a>
               </li>
             ))}
