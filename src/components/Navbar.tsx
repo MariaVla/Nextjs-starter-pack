@@ -1,35 +1,13 @@
-import Link from 'next/link';
+import { ActiveLink } from './ActiveLink';
 
 export const Navbar = () => {
   return (
     <nav style={{ padding: '2rem' }}>
-      <Link href="/">
-        <a>
-          <span>Home</span>
-        </a>
-      </Link>
-
-      <Link href="/login">
-        <a>
-          <span>Login</span>
-        </a>
-      </Link>
-
-      <Link href="/about">
-        <a>
-          <span>About</span>
-        </a>
-      </Link>
-      <Link href="/users">
-        <a>
-          <span>Users</span>
-        </a>
-      </Link>
-      <Link href="/friends">
-        <a>
-          <span>Friends</span>
-        </a>
-      </Link>
+      <ActiveLink text={'Home'} href={'/'} />
+      <ActiveLink text={'Login'} href={'/login'} />
+      <ActiveLink text={'About'} href={'/about'} />
+      <ActiveLink text={'Users'} href={'/users'} />
+      <ActiveLink text={'Friends'} href={'/friends'} />
     </nav>
   );
 };
