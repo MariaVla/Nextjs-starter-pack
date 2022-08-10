@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import { Navbar } from '../src/components/Navbar';
 import styles from '../styles/Home.module.css';
 
 import React from 'react';

@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Navbar } from '../src/components/Navbar';
 import styles from '../styles/Login.module.css';
 
 const LoginPage: NextPage = () => {

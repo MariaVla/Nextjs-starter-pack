@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { NextPage, NextPageContext } from 'next';
 import styles from '../styles/Users.module.css';
-import { Navbar } from '../src/components/Navbar';
 
 const fetchFriends = async () => {
   const response = await fetch('http://localhost:4000/friends');

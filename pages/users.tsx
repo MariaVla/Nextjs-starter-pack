@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import styles from '../styles/Users.module.css';
-import { Navbar } from '../src/components/Navbar';
 
 const fetchUsers = async () => {
   const response = await fetch('http://localhost:4000/superheroes');
