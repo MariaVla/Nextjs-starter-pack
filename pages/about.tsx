@@ -1,7 +1,8 @@
-import type { NextPage } from 'next';
-import styles from '../styles/Home.module.css';
-
 import React from 'react';
+import type { NextPage } from 'next';
+import { MainLayout } from '../components/layouts/MainLayout';
+
+import styles from '../styles/Home.module.css';
 
 // export default function AboutPage: NextPage() {
 //   return (
@@ -12,13 +13,11 @@ import React from 'react';
 const AboutPage: NextPage = () => {
   return (
     <>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <h1 className={styles.title}>About</h1>
+      <MainLayout>
+        <h1 className={styles.title}>About</h1>
 
-          <p className={styles.description}>Quienes somos?</p>
-        </main>
-      </div>
+        <p className={styles.description}>Quienes somos?</p>
+      </MainLayout>
     </>
   );
 };

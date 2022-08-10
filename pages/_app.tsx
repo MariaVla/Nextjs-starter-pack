@@ -2,7 +2,6 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Navbar } from '../src/components/Navbar';
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -10,7 +9,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Navbar />
       <Component {...pageProps} />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

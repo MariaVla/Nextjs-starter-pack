@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { NextPage, NextPageContext } from 'next';
+import { MainLayout } from '../components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
 
 const fetchFriends = async () => {
@@ -31,7 +32,7 @@ const FriendsPage: NextPage = ({ usersList }: Props) => {
 
   return (
     <>
-      <div className={styles.container}>
+      <MainLayout>
         <div className={styles.containerUsers}>
           <h1>Friends list (normal fetching in Next.js)</h1>
           <ul className={styles.listUsers}>
@@ -44,7 +45,7 @@ const FriendsPage: NextPage = ({ usersList }: Props) => {
             ))}
           </ul>
         </div>
-      </div>
+      </MainLayout>
     </>
   );
 };

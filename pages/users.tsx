@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
+import { MainLayout } from '../components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
 
 const fetchUsers = async () => {
@@ -47,7 +47,7 @@ const UsersPage: NextPage = (props) => {
 
   return (
     <>
-      <div className={styles.container}>
+      <MainLayout>
         <div className={styles.containerUsers}>
           <ul className={styles.listUsers}>
             {users?.map((user) => (
@@ -65,7 +65,7 @@ const UsersPage: NextPage = (props) => {
             Trigger Refetch - React Query
           </button>
         </div>
-      </div>
+      </MainLayout>
     </>
   );
 };
