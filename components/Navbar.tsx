@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import { ActiveLink } from './ActiveLink';
 
-export const Navbar = () => {
+export const Navbar: FC = () => {
   return (
     <nav style={{ padding: '2rem' }}>
       <ActiveLink text={'Home'} href={'/'} />
