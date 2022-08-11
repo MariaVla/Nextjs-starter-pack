@@ -24,12 +24,12 @@ type Props = {
 
 // Example using React-Query
 const UsersPage: NextPage<Props> = (props) => {
-  const onSuccess = (data: {}) => {
+  const onSuccess = (data) => {
     // Perform side effect after data fetching
     console.log('onSuccess:', { data });
   };
 
-  const onError = (error: string) => {
+  const onError = (error) => {
     // Perform side effect after encountering error
     console.log('onError:', { error });
   };
