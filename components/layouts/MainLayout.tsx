@@ -1,6 +1,6 @@
-import Head from 'next/head';
 import { FC } from 'react';
-import { Navbar } from '../Navbar';
+import Head from 'next/head';
+import { Navbar } from '../ui';
 import styles from './MainLayout.module.css';
 
 interface Props {
