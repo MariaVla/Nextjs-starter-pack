@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { NextPage, NextPageContext } from 'next';
-import { MainLayout } from '../components/layouts/MainLayout';
+import { MainLayout } from '../src/components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
 
 const fetchFriends = async () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import { MainLayout } from '../components/layouts/MainLayout';
+import { MainLayout } from '../src/components/layouts/MainLayout';
 
 import styles from '../styles/Home.module.css';
 

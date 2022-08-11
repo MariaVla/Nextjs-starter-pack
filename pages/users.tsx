@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { useQuery } from '@tanstack/react-query';
-import { MainLayout } from '../components/layouts/MainLayout';
+import { MainLayout } from '../src/components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
 
 const fetchUsers = async () => {
