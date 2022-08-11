@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import type { NextPage, NextPageContext } from 'next';
+
+import type { NextPage, NextPageContext, GetServerSideProps } from 'next';
+
 import { MainLayout } from '../src/components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
 
@@ -54,7 +56,9 @@ const FriendsPage: NextPage<Props> = ({ usersList }) => {
   );
 };
 
-export async function getServerSideProps({ query, req }: NextPageContext) {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { query, req } = ctx;
+
   if (!req) {
     return { props: { usersList: [] } };
   }
@@ -62,6 +66,6 @@ export async function getServerSideProps({ query, req }: NextPageContext) {
   const usersList = await fetchFriends();
 
   return { props: { usersList } };
-}
+};
 
 export default FriendsPage;

@@ -1,5 +1,6 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import { useQuery } from '@tanstack/react-query';
+
 import { USERS_KEY } from '../src/constants';
 import { MainLayout } from '../src/components/layouts';
 
@@ -85,9 +86,9 @@ const UsersPage: NextPage<Props> = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const users = await fetchUsers();
   return { props: { users } };
-}
+};
 
 export default UsersPage;
