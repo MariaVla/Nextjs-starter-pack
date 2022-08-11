@@ -85,7 +85,7 @@ const UsersPage: NextPage<Props> = (props) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const users = await fetchUsers();
   return { props: { users } };
 }
