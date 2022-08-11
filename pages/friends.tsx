@@ -38,7 +38,7 @@ const FriendsPage: NextPage<Props> = ({ usersList }) => {
         content={'Friends Page'}
       >
         <div className={styles.containerUsers}>
-          <h1>Friends list (normal fetching in Next.js)</h1>
+          <h1>Friends list (Server side rendering sin React Query)</h1>
           <ul className={styles.listUsers}>
             {users?.map((user: User) => (
               <li key={user?.id}>

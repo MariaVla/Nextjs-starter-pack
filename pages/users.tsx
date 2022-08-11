@@ -74,7 +74,7 @@ const UsersPage: NextPage = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const users = await fetchUsers();
   return { props: { users } };
 }
