@@ -12,18 +12,18 @@ const fetchFriends = async () => {
   return response.json();
 };
 
-type Props = {
-  usersList: [];
-};
-
 type User = {
   id: number;
   website: string;
   name: string;
 };
 
+type Props = {
+  usersList: User[];
+};
+
 // Example normal data fetching in React
-const FriendsPage: NextPage = ({ usersList }: Props) => {
+const FriendsPage: NextPage<Props> = ({ usersList }) => {
   const [users, setUsers] = useState(usersList);
 
   if (users?.length === 0) {
