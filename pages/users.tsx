@@ -5,22 +5,11 @@ import { USERS_KEY } from '../src/constants';
 import { MainLayout } from '../src/components/layouts';
 
 import styles from '../styles/Users.module.css';
-
-const fetchUsers = async () => {
-  const response = await fetch('http://localhost:4000/superheroes');
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
-
-type User = {
-  id: number;
-  name: string;
-};
+import { usersApi } from '../src/api';
+import { UserResponse } from '../src/interfaces';
 
 type Props = {
-  users: User[];
+  users: UserResponse[];
 };
 
 // Example using React-Query
@@ -86,8 +75,16 @@ const UsersPage: NextPage<Props> = (props) => {
   );
 };
 
+const fetchUsers = async () => {
+  const { data } = await usersApi.get<UserResponse[]>('/superheroes');
+
+  return data;
+};
+
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const users = await fetchUsers();
+  console.log('[DEBUG] users', users);
+
   return { props: { users } };
 };
 
