@@ -1,12 +1,12 @@
 import type { NextPage, GetStaticProps } from 'next';
 import { useQuery } from '@tanstack/react-query';
 
-import { USERS_KEY } from '../src/constants';
-import { MainLayout } from '../src/components/layouts';
+import { USERS_KEY } from '../../src/constants';
+import { MainLayout } from '../../src/components/layouts';
 
-import styles from '../styles/Users.module.css';
-import { usersApi } from '../src/api';
-import { UserResponse } from '../src/interfaces';
+import styles from '../../styles/Users.module.css';
+import { usersApi } from '../../src/api';
+import { UserResponse } from '../../src/interfaces';
 
 type Props = {
   users: UserResponse[];
@@ -83,7 +83,6 @@ const fetchUsers = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const users = await fetchUsers();
-  console.log('[DEBUG] users', users);
 
   return { props: { users } };
 };
