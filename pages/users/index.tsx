@@ -1,9 +1,5 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Link from 'next/link';
-
-import { useQuery } from '@tanstack/react-query';
-
-import { USERS_KEY } from '../../src/constants';
 import { MainLayout } from '../../src/components/layouts';
 import { usersApi } from '../../src/api';
 import { UserResponse } from '../../src/interfaces';
@@ -14,40 +10,9 @@ type Props = {
   users: UserResponse[];
 };
 
-// Example using React-Query
-const UsersPage: NextPage<Props> = (props) => {
-  const onSuccess = (data) => {
-    // Perform side effect after data fetching
-    console.log('onSuccess:', { data });
-  };
-
-  const onError = (error) => {
-    // Perform side effect after encountering error
-    console.log('onError:', { error });
-  };
-
-  const {
-    isLoading,
-    data: users,
-    isError,
-    error,
-    refetch,
-    isFetching,
-  } = useQuery([USERS_KEY], fetchUsers, {
-    initialData: props?.users,
-    staleTime: 30000,
-    onSuccess,
-    onError,
-  });
-
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
-
-  if (isError) {
-    return <h2>{error?.message}</h2>;
-  }
-
+// Example using getStaticProps -> will be call one time during build time
+// if API changes I will not see the updates
+const UsersPage: NextPage<Props> = ({ users }) => {
   return (
     <MainLayout
       title={'Users'}
@@ -66,12 +31,6 @@ const UsersPage: NextPage<Props> = (props) => {
             </div>
           ))}
         </ul>
-        <button
-          className={`${styles.btn} ${styles.btnXs} ${styles.fetchBtn}`}
-          onClick={refetch}
-        >
-          Trigger Refetch - React Query
-        </button>
       </div>
     </MainLayout>
   );
