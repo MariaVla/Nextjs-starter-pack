@@ -4,9 +4,15 @@ import { useForm } from 'react-hook-form';
 import styles from '../styles/Login.module.css';
 
 type User = {
-  id: number;
-  website: string;
+  id?: number;
   name: string;
+  website?: string;
+};
+
+type UserLoginType = {
+  username: string;
+  password?: string;
+  remember?: boolean;
 };
 
 const LoginPage: NextPage = () => {
@@ -15,11 +21,12 @@ const LoginPage: NextPage = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm<UserLoginType>();
 
-  const onSubmit = ({ username, password, remember }) => {
+  const onSubmit = ({ username, password, remember }: UserLoginType) => {
     // You should handle login logic with username, password and remember form data
-    setUser({ name: username, ...user });
+
+    setUser({ name: username });
   };
 
   return (
@@ -50,7 +57,7 @@ const LoginPage: NextPage = () => {
               />
               {errors.username && (
                 <span className={styles.errorLabel}>
-                  {errors.username.message}
+                  {errors.username?.message}
                 </span>
               )}
             </div>
