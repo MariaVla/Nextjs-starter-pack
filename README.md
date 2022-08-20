@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## To run JSON server (our mock database)
+## To run JSON server locally (our mock database) - Not necessary if https://my-fake-json-server.herokuapp.com is working
 
 `$ yarn serve-json`
 
