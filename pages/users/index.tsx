@@ -47,7 +47,10 @@ const fetchUsers = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const users = await fetchUsers();
 
-  return { props: { users } };
+  return {
+    props: { users },
+    revalidate: 86400, // 60 * 60 * 24
+  };
 };
 
 export default UsersPage;

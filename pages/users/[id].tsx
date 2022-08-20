@@ -3,11 +3,17 @@ import { useRouter } from 'next/router';
 import { MainLayout } from '../../src/components/layouts';
 
 import styles from '../../styles/Users.module.css';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { usersApi } from '../../src/api';
+import { User } from '../../src/interfaces';
 
-const UserPage = () => {
-  const router = useRouter();
+type Props = {
+  user: User;
+};
 
-  const userId = router.query.id;
+const UserPage: NextPage<Props> = ({ user }) => {
+  // const router = useRouter();
+  // const userId = router.query.id;
 
   return (
     <MainLayout
@@ -16,10 +22,44 @@ const UserPage = () => {
       content={'User Page'}
     >
       <div className={styles.containerUsers}>
-        <h1>Hello from User with id: {userId}</h1>
+        <h1>Hello from User: {user.name}</h1>
       </div>
     </MainLayout>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
+  const users3 = [...Array(3)].map((value, index) => `${index + 1}`);
+
+  return {
+    paths: users3.map((id) => ({
+      params: { id },
+    })),
+    // fallback: false, // return 404 page
+    fallback: 'blocking', // pass to getStaticProps
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { id } = params as { id: string };
+
+  try {
+    const { data } = await usersApi.get<User>(`/superheroes/${id}`);
+
+    return {
+      props: {
+        user: data,
+      },
+      revalidate: 86400, // 60 * 60 * 24 (every 24hrs)
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
 };
 
 export default UserPage;
