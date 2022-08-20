@@ -4,27 +4,25 @@ import type { NextPage, NextPageContext, GetServerSideProps } from 'next';
 
 import { MainLayout } from '../src/components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
+import { usersApi } from '../src/api';
 
-const fetchFriends = async () => {
-  const response = await fetch('http://localhost:4000/friends');
-
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
-
-type User = {
+type Friend = {
   id: number;
   website: string;
   name: string;
 };
 
 type Props = {
-  usersList: User[];
+  usersList: Friend[];
 };
 
-// Example normal data fetching in React
+const fetchFriends = async () => {
+  const { data } = await usersApi.get<Friend[]>('/friends');
+
+  return data;
+};
+
+// Example: Server Side Rendering -> call getServerSideProps on every request
 const FriendsPage: NextPage<Props> = ({ usersList }) => {
   const [users, setUsers] = useState(usersList);
 
@@ -40,9 +38,10 @@ const FriendsPage: NextPage<Props> = ({ usersList }) => {
         content={'Friends Page'}
       >
         <div className={styles.containerUsers}>
-          <h1>Friends list (Server side rendering sin React Query)</h1>
+          <h1>Server side rendering (getServerSideProps) sin React Query)</h1>
+          <p>In prod it will run on every request to the server.</p>
           <ul className={styles.listUsers}>
-            {users?.map((user: User) => (
+            {users?.map((user) => (
               <li key={user?.id}>
                 <a href={user?.website} target="_blank" rel="noreferrer">
                   {user?.name}

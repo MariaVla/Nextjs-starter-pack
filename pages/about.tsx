@@ -2,7 +2,7 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { MainLayout } from '../src/components/layouts/MainLayout';
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Common.module.css';
 
 // export default function AboutPage: NextPage() {
 //   return (
