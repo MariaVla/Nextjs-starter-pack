@@ -16,22 +16,18 @@ const fetchUsers = async () => {
   return data;
 };
 
-type Props = {
-  users: User[];
-};
-
 // Example using React-Query
 // Now -> we are calling React query on client side
 // TODO -> call React Query on getStaticProps ??? will it work? what if the database change?
-const Transactions: NextPage<Props> = () => {
-  const onSuccess = (data) => {
+const Transactions: NextPage = () => {
+  const onSuccess = (data: User[]) => {
     // Perform side effect after data fetching
-    console.log('onSuccess:', { data });
+    console.log('[DEBUG] onSuccess:', data);
   };
 
-  const onError = (error) => {
+  const onError = (error: { message: string }) => {
     // Perform side effect after encountering error
-    console.log('onError:', { error });
+    console.log('[DEBUG]  onError:', error);
   };
 
   const {
@@ -42,24 +38,24 @@ const Transactions: NextPage<Props> = () => {
     refetch,
     isFetching,
   } = useQuery([USERS_KEY], fetchUsers, {
-    // staleTime: 30000,
+    staleTime: 30000,
     onSuccess,
     onError,
   });
-
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
 
   if (isError) {
     return <h2>{error?.message}</h2>;
   }
 
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
     <MainLayout
-      title={'Users'}
-      description="Users Page description"
-      content={'Users Page'}
+      title={'Transactions'}
+      description="Transactions Page description"
+      content={'Transactions Page'}
     >
       <div className={styles.containerUsers}>
         <h1>Client Side Rendering with React Query</h1>
@@ -76,7 +72,7 @@ const Transactions: NextPage<Props> = () => {
         </ul>
         <button
           className={`${styles.btn} ${styles.btnXs} ${styles.fetchBtn}`}
-          onClick={refetch}
+          onClick={() => refetch()}
         >
           Trigger Refetch - React Query
         </button>
