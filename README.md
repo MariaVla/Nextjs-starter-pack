@@ -37,9 +37,60 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## To run JSON server locally (our mock database) - Not necessary if https://my-fake-json-server.herokuapp.com is working
+## To run JSON server locally (our mock database) - Or use https://my-fake-json-server.herokuapp.com if working
 
 `$ yarn serve-json`
+
+This will create some endpoints define in the `db.json` where you can fetch data.
+
+`http://localhost:4000/superheroes`
+`http://localhost:4000/superheroes/:id`
+`http://localhost:4000/friends`
+`http://localhost:4000/friends/:id`
+
+You can also make `post/put/delete` requests. Example:
+
+```javascript
+const createUser = () => {
+  axios
+    .post('http://localhost:4000/superheroes', {
+      id: 4,
+      name: 'The Flash',
+      alterEgo: 'Barry Allen',
+    })
+    .then((resp) => {
+      console.log(resp.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const updateUser = () => {
+  axios
+    .put('http://localhost:4000/superheroes/4', {
+      name: 'Flash',
+      alterEgo: 'Barry Allen',
+    })
+    .then((resp) => {
+      console.log(resp.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const deleteUser = () => {
+  axios
+    .delete('http://localhost:4000/superheroes/4')
+    .then((resp) => {
+      console.log(resp.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+```
 
 ---
 
