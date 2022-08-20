@@ -5,10 +5,10 @@ import type { NextPage, NextPageContext, GetServerSideProps } from 'next';
 import { MainLayout } from '../src/components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
 import { usersApi } from '../src/api';
-import { UserResponse } from '../src/interfaces';
+import { User } from '../src/interfaces';
 
 const fetchFriends = async () => {
-  const { data } = await usersApi.get<UserResponse[]>('/friends');
+  const { data } = await usersApi.get<User[]>('/friends');
 
   return data;
 };

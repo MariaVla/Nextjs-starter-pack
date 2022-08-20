@@ -2,12 +2,12 @@ import type { NextPage, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { MainLayout } from '../../src/components/layouts';
 import { usersApi } from '../../src/api';
-import { UserResponse } from '../../src/interfaces';
+import { User } from '../../src/interfaces';
 
 import styles from '../../styles/Users.module.css';
 
 type Props = {
-  users: UserResponse[];
+  users: User[];
 };
 
 // Example using getStaticProps -> will be call ONE time during build time
@@ -39,7 +39,7 @@ const UsersPage: NextPage<Props> = ({ users }) => {
 };
 
 const fetchUsers = async () => {
-  const { data } = await usersApi.get<UserResponse[]>('/superheroes');
+  const { data } = await usersApi.get<User[]>('/superheroes');
 
   return data;
 };

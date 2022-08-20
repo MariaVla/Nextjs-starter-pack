@@ -1,4 +1,4 @@
-export interface UserResponse {
+export interface User {
   id: number;
   name: string;
   alterEgo?: string;

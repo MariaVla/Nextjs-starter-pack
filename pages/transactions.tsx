@@ -5,19 +5,19 @@ import { useQuery } from '@tanstack/react-query';
 
 import { USERS_KEY } from '../src/constants';
 import { MainLayout } from '../src/components/layouts';
-import { UserResponse } from '../src/interfaces';
+import { User } from '../src/interfaces';
 
 import styles from '../styles/Users.module.css';
 import { usersApi } from '../src/api';
 
 const fetchUsers = async () => {
-  const { data } = await usersApi.get<UserResponse[]>('/superheroes');
+  const { data } = await usersApi.get<User[]>('/superheroes');
 
   return data;
 };
 
 type Props = {
-  users: UserResponse[];
+  users: User[];
 };
 
 // Example using React-Query
