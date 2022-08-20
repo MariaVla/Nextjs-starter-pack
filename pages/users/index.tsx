@@ -10,7 +10,7 @@ type Props = {
   users: UserResponse[];
 };
 
-// Example using getStaticProps -> will be call one time during build time
+// Example using getStaticProps -> will be call ONE time during build time
 // if API changes I will not see the updates
 const UsersPage: NextPage<Props> = ({ users }) => {
   return (
@@ -20,6 +20,8 @@ const UsersPage: NextPage<Props> = ({ users }) => {
       content={'Users Page'}
     >
       <div className={styles.containerUsers}>
+        <h1>getStaticProps (at build time)</h1>
+        <p>In prod it will run once at build time.</p>
         <ul className={styles.listUsers}>
           {users?.map((user) => (
             <div key={user.id}>

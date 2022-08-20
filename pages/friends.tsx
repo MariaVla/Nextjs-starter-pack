@@ -4,14 +4,13 @@ import type { NextPage, NextPageContext, GetServerSideProps } from 'next';
 
 import { MainLayout } from '../src/components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
+import { usersApi } from '../src/api';
+import { UserResponse } from '../src/interfaces';
 
 const fetchFriends = async () => {
-  const response = await fetch('http://localhost:4000/friends');
+  const { data } = await usersApi.get<UserResponse[]>('/friends');
 
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
+  return data;
 };
 
 type User = {
@@ -24,7 +23,7 @@ type Props = {
   usersList: User[];
 };
 
-// Example normal data fetching in React
+// Example: Server Side Rendering -> call getServerSideProps on every request
 const FriendsPage: NextPage<Props> = ({ usersList }) => {
   const [users, setUsers] = useState(usersList);
 
@@ -40,7 +39,8 @@ const FriendsPage: NextPage<Props> = ({ usersList }) => {
         content={'Friends Page'}
       >
         <div className={styles.containerUsers}>
-          <h1>Friends list (Server side rendering sin React Query)</h1>
+          <h1>Server side rendering (getServerSideProps) sin React Query)</h1>
+          <p>In prod it will run on every request to the server.</p>
           <ul className={styles.listUsers}>
             {users?.map((user: User) => (
               <li key={user?.id}>

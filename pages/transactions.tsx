@@ -62,6 +62,7 @@ const Transactions: NextPage<Props> = () => {
       content={'Users Page'}
     >
       <div className={styles.containerUsers}>
+        <h1>Client Side Rendering with React Query</h1>
         <ul className={styles.listUsers}>
           {users?.map((user) => (
             <div key={user.id}>
