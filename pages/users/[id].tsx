@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
       params: { id },
     })),
     // fallback: false, // return 404 page
-    fallback: 'blocking', // pass to getStaticProps
+    fallback: 'blocking', // pass to execute getStaticProps to search if the user exist.
   };
 };
 
