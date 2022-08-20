@@ -5,22 +5,21 @@ import type { NextPage, NextPageContext, GetServerSideProps } from 'next';
 import { MainLayout } from '../src/components/layouts/MainLayout';
 import styles from '../styles/Users.module.css';
 import { usersApi } from '../src/api';
-import { User } from '../src/interfaces';
 
-const fetchFriends = async () => {
-  const { data } = await usersApi.get<User[]>('/friends');
-
-  return data;
-};
-
-type User = {
+type Friend = {
   id: number;
   website: string;
   name: string;
 };
 
 type Props = {
-  usersList: User[];
+  usersList: Friend[];
+};
+
+const fetchFriends = async () => {
+  const { data } = await usersApi.get<Friend[]>('/friends');
+
+  return data;
 };
 
 // Example: Server Side Rendering -> call getServerSideProps on every request
@@ -42,7 +41,7 @@ const FriendsPage: NextPage<Props> = ({ usersList }) => {
           <h1>Server side rendering (getServerSideProps) sin React Query)</h1>
           <p>In prod it will run on every request to the server.</p>
           <ul className={styles.listUsers}>
-            {users?.map((user: User) => (
+            {users?.map((user) => (
               <li key={user?.id}>
                 <a href={user?.website} target="_blank" rel="noreferrer">
                   {user?.name}
