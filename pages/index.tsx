@@ -22,11 +22,12 @@ const HomePage: NextPage = () => {
     <MainLayout title={title} description={description} content={'Home Page'}>
       <header>
         <div className={styles.languages}>
-          {[...locales].sort().map((locale) => (
-            <Link key={locale} href="/" locale={locale}>
-              {locale}
-            </Link>
-          ))}
+          {locales &&
+            [...locales].map((locale) => (
+              <Link key={locale} href="/" locale={locale}>
+                {locale}
+              </Link>
+            ))}
         </div>
       </header>
 

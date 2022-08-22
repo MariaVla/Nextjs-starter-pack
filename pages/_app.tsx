@@ -13,8 +13,8 @@ import es from '../src/lang/es.json';
 import '../styles/globals.css';
 
 const messages = {
-  en,
   es,
+  en,
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
