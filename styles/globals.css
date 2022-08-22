@@ -31,10 +31,10 @@ a {
   text-decoration: none;
   padding: 8px;
   cursor: pointer;
+}
 
-  :hover {
-    text-decoration: underline;
-  }
+a:hover {
+  text-decoration: underline;
 }
 
 button {
