@@ -10,12 +10,8 @@ Next.js started pack:
 
 ### TODO
 
-- Add prettier
-- Better config for eslint
 - Add post example with React Query
-- Add Typescript basic
 - Make login functional
-- Add i18n ?
 
 ## Dependencies
 
